@@ -2,7 +2,7 @@ import csv
 
 server_name = []
 
-encodings = ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1']
+encodings = ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1', 'utf-16', 'utf-32', 'cp437', 'cp850', 'ascii']
 
 for encoding in encodings:
     try:
