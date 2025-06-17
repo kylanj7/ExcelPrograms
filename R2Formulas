@@ -1,0 +1,55 @@
+EXCEL FORMULAS FOR R2 IT-ASSET MANAGEMENT SHEETS
+
+These formulas are intended to automate and simplify the R2 documentation process while upholding meticulous documentation standards. 
+
+The formulas revolves around the assigned number, given to the item when it is being received by the assets Dept. (e.i. "E1281")
+
+Using a barcode scanner, the technician should quickly record the serial and product number, and then add the assigned number to the item from the correlating row the item falls in to, assigned a matching removable sticker to the item and store it for later testing. 
+
+When it comes time for the item to be tested, there is no need to enter meticulous documentation again. The technician simply states if the item is to be "Discarded" or Tested/Verified" in the "Incoming Device Log". Enter the assigned number into the appropriate test log for that specific item and the data will be automatically entered. Some manual entry will be required for items that need specific entry such as volts for AC adapters, impendence values for speakers, bulb hours for projectors and so on. 
+
+AD2 SPECIALTY ELECTRONICS EXCEL FORMULAS
+
+DATE:
+
+=INDEX('[Testing Quality Control Log 1.7.xlsx]Incoming Device Log'!A:A,MATCH(F169,'[Testing Quality Control Log 1.7.xlsx]Incoming Device Log'!E:E,0))
+
+PN: 
+
+=INDEX('[Testing Quality Control Log 1.7.xlsx]Incoming Device Log'!C:C,MATCH(F169,'[Testing Quality Control Log 1.7.xlsx]Incoming Device Log'!E:E,0))
+
+Serial:
+
+=INDEX('[Testing Quality Control Log 1.7.xlsx]Incoming Device Log'!D:D,MATCH(F169,'[Testing Quality Control Log 1.7.xlsx]Incoming Device Log'!E:E,0))
+
+SALES LOG EXCEL FORMULAS
+
+Serial:
+
+=INDEX('Incoming Device Log'!D:D,MATCH(M411,'Incoming Device Log'!E:E,0))
+
+DEVICE TESTING LOG EXCEL FORMULAS
+
+Item Name:
+
+=INDEX('Incoming Device Log'!B:B,MATCH(I19,'Incoming Device Log'!E:E,0))
+
+Serial:
+
+=INDEX('Incoming Device Log'!D:D,MATCH(I19,'Incoming Device Log'!E:E,0))
+
+PN:
+
+=INDEX('Incoming Device Log'!C:C,MATCH(I19,'Incoming Device Log'!E:E,0))
+
+Cosmetic R2 Grade:
+
+=IF(VLOOKUP($I19,'Incoming Device Log'!$E:$G,3,FALSE)="Scrapped","-","C4")
+
+Functional R2 Grade:
+
+=IF(VLOOKUP($I19,'Incoming Device Log'!$E:$G,3,FALSE)="Scrapped","-","F4")
+
+Pass/Fail Status:
+
+=IF(VLOOKUP($I19,'Incoming Device Log'!$E:$G,3,FALSE)="Scrapped","Fail","Pass")
